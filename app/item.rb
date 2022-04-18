@@ -10,4 +10,9 @@ class Item
     @archived = archived
   end
   # rubocop:enable Style/OptionalBooleanParameter
+
+  def genre=(genre)
+    @genre = genre
+    genre.items.push(self) unless genre.items.include?(self)
+  end
 end
