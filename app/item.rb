@@ -3,7 +3,7 @@ class Item
   attr_reader :id, :archived, :genre, :author, :label
 
   # rubocop:disable Style/OptionalBooleanParameter
-  def initialize(name, publish_date, id = Random.rand(1..100_000), archived = false)
+  def initialize(name, publish_date, archived = false, id = Random.rand(1..100_000))
     @id = id
     @name = name
     @publish_date = publish_date # Time.new(year, month, day)
