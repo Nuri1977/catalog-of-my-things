@@ -1,5 +1,3 @@
- lines (17 sloc)  431 Bytes
-
 name: Tests
 
 on: pull_request
