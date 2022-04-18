@@ -6,7 +6,7 @@ describe MusicAlbum do
   end
 
   context 'When testing the MusicAlbum class' do
-    it 'should have an object with the instance of Solver' do
+    it 'should have an object with the instance of MusicAlbum' do
       music_class = @music.class
 
       expect(music_class).to be MusicAlbum
