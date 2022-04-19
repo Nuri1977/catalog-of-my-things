@@ -21,7 +21,6 @@ module GameList
     end
   end
 
-  # rubocop:disable Metrics/MethodLength
   def add_game
     puts 'Create a new game'
     print 'Enter game name: '
@@ -48,5 +47,4 @@ module GameList
     save_games(@games)
     puts 'New game was created'
   end
-  # rubocop:enable Metrics/MethodLength
 end

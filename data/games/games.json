@@ -25,5 +25,14 @@
     "last_played_at": 1580598000,
     "archived": false,
     "author_id": 1997
+  },
+  {
+    "id": 8138,
+    "name": "Starcraft",
+    "date": 1135465200,
+    "multiplayer": true,
+    "last_played_at": 1653861600,
+    "archived": false,
+    "author_id": 767
   }
 ]
