@@ -1,5 +1,6 @@
 require_relative './helper'
 require_relative './music_album'
+require_relative '../data/music/music_album_crud'
 
 module MusicList
   include Helper
@@ -39,6 +40,7 @@ module MusicList
       music_album.add_genre = @genres[genre_index]
     end
     @music_albums.push(music_album)
+    save_music_albums(@music_albums)
     puts 'Created a Music Album successfully!'
   end
 
