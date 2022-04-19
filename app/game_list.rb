@@ -3,7 +3,8 @@ module GameList
     puts 'List of all Games:'
     puts 'Database is empty! Add a game.' if @games.empty?
     @games.each do |game|
-      print "id:#{game.id} date:#{game.publish_date.strftime('%Y/%m/%d')} MP:'#{game.multiplayer}' last_played:"
+      puts
+      print "id:#{game.id} name:'#{game.name}'  date:#{game.publish_date.strftime('%Y/%m/%d')} MP:'#{game.multiplayer}' last_played:"
       print "#{game.last_played_at.strftime('%Y/%m/%d')} author:'#{game.author.first_name} #{game.author.last_name}'"
     end
     puts '  '
@@ -53,6 +54,7 @@ module GameList
     new_game = Game.new(name, Time.new(year, month, date), multiplayer, Time.new(year_l, month_l, date_l))
     new_game.author = @authors[author_index]
     @games.push(new_game)
+    save_games(@games)
     puts 'New game was created'
   end
   # rubocop:enable Metrics/MethodLength, Metrics/AbcSize

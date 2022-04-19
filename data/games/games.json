@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "id": 4389,
+    "name": "Dota All Stars",
+    "date": 1369864800,
+    "multiplayer": true,
+    "last_played_at": 1649973600,
+    "archived": false,
+    "author_id": 767
+  },
+  {
+    "id": 9589,
+    "name": "Counter strike",
+    "date": 1367704800,
+    "multiplayer": true,
+    "last_played_at": 1590012000,
+    "archived": false,
+    "author_id": 1997
+  },
+  {
+    "id": 1279,
+    "name": "Minecraft",
+    "date": 1274738400,
+    "multiplayer": true,
+    "last_played_at": 1580598000,
+    "archived": false,
+    "author_id": 1997
+  }
+]

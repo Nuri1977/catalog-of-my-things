@@ -24,5 +24,6 @@ class App
   def run
     puts 'This method is for fetching data from json files'
     @authors = read_authors
+    @games = read_games(@authors)
   end
 end
