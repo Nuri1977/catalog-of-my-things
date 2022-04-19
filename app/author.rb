@@ -13,4 +13,5 @@ class Author
     items.push(item)
     item.label = self
   end
+
 end
