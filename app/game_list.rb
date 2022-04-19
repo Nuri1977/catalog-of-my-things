@@ -1,39 +1,33 @@
+require_relative './helper'
+require_relative './game'
+
 module GameList
   def list_all_games
-    puts 'List of all Games.'
+    puts 'List of all Games:'
     puts 'Database is empty! Add a game.' if @games.empty?
     @games.each do |game|
-      puts "id:#{game.id} date:#{game.publish_date.strftime('%Y/%m/%d')} MP:'#{game.multiplayer}' last_played:"
-      puts "#{game.last_played_at.strftime('%Y/%m/%d')} author:#{game.author.first_name} #{game.author.last_name}"
+      puts
+      print "id:#{game.id} name:'#{game.name}'  date:#{game.publish_date.strftime('%Y/%m/%d')} "
+      print "MP:'#{game.multiplayer}'  last_played:#{game.last_played_at.strftime('%Y/%m/%d')}  "
+      print "author:'#{game.author.first_name} #{game.author.last_name}'"
     end
+    puts '  '
   end
 
   def list_all_authors
-    if @authors.empty?
-      @authors.push(Author.new('Nuri', 'Lacka'))
-      @authors.push(Author.new('Mugisha', 'Samuel'))
-    end
-    puts 'List of all authors.'
+    puts 'List of all authors:'
     @authors.each do |author|
       puts "id:#{author.id} name:'#{author.first_name} #{author.last_name}'"
     end
   end
 
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def add_game
-    if @authors.empty?
-      @authors.push(Author.new('Nuri', 'Lacka'))
-      @authors.push(Author.new('Mugisha', 'Samuel'))
-    end
     puts 'Create a new game'
     print 'Enter game name: '
     name = gets.chomp
-    print 'Enter game year: '
-    year = gets.chomp.to_i
-    print 'Enter game month betwen 1-12: '
-    month = gets.chomp.to_i
-    print 'Enter game date between 1-31: '
-    date = gets.chomp.to_i
+    year = select_year
+    month = select_month
+    date = select_day
     print 'Is it Multiplayer? [Y/N]: '
     multiplayer_input = gets.chomp.downcase
     multiplayer = false
@@ -50,7 +44,7 @@ module GameList
     new_game = Game.new(name, Time.new(year, month, date), multiplayer, Time.new(year_l, month_l, date_l))
     new_game.author = @authors[author_index]
     @games.push(new_game)
+    save_games(@games)
     puts 'New game was created'
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 end
