@@ -21,9 +21,22 @@ class App
     @authors = []
   end
 
+  def seed_random_data
+    if @authors.empty?
+      @authors.push(Author.new('Stephen', 'King'))
+      @authors.push(Author.new('Nuri', 'Lacka'))
+      @authors.push(Author.new('Mugisha', 'Samuel'))
+      @authors.push(Author.new('Pedro', 'Guerreiro'))
+      save_authors(@authors)
+    else
+      puts 'Data was fetched from database'
+    end
+  end
+
   def run
     puts 'This method is for fetching data from json files'
     @authors = read_authors
+    seed_random_data
     @games = read_games(@authors)
   end
 end

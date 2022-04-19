@@ -11,11 +11,6 @@ module GameList
   end
 
   def list_all_authors
-    if @authors.empty?
-      @authors.push(Author.new('Nuri', 'Lacka'))
-      @authors.push(Author.new('Mugisha', 'Samuel'))
-      save_authors(@authors)
-    end
     puts 'List of all authors:'
     @authors.each do |author|
       puts "id:#{author.id} name:'#{author.first_name} #{author.last_name}'"
@@ -24,11 +19,6 @@ module GameList
 
   # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def add_game
-    if @authors.empty?
-      @authors.push(Author.new('Nuri', 'Lacka'))
-      @authors.push(Author.new('Mugisha', 'Samuel'))
-      save_authors(@authors)
-    end
     puts 'Create a new game'
     print 'Enter game name: '
     name = gets.chomp
