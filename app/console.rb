@@ -35,7 +35,7 @@ module Console
       when 3
         puts 'list_games'
       when 4
-        puts 'list_genres'
+        puts list_genres
       when 5
         puts 'list_labels'
       when 6

@@ -1,5 +1,4 @@
 require './app/console'
-require './app/music_album'
 
 class App
   include Console
@@ -31,6 +30,16 @@ class App
         # rubocop:disable Layout/LineLength
         puts "#{index}) Album: #{music_album.name}, Publish Date: #{time_format(music_album.publish_date)}, Archived: #{music_album.archived}, Spotify: #{music_album.on_spotify}"
         # rubocop:enable Layout/LineLength
+      end
+    end
+  end
+
+  def list_genres
+    if @genres.empty?
+      puts 'You don\'t have any Genres.'
+    else
+      @genres.each_with_index do |genre, index|
+        puts "#{index}) Genre: #{genre.name}"
       end
     end
   end
