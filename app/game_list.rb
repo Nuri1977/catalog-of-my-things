@@ -1,11 +1,15 @@
+require_relative './helper'
+require_relative './game'
+
 module GameList
   def list_all_games
     puts 'List of all Games:'
     puts 'Database is empty! Add a game.' if @games.empty?
     @games.each do |game|
       puts
-      print "id:#{game.id} name:'#{game.name}'  date:#{game.publish_date.strftime('%Y/%m/%d')} MP:'#{game.multiplayer}' last_played:"
-      print "#{game.last_played_at.strftime('%Y/%m/%d')} author:'#{game.author.first_name} #{game.author.last_name}'"
+      print "id:#{game.id} name:'#{game.name}'  date:#{game.publish_date.strftime('%Y/%m/%d')} "
+      print "MP:'#{game.multiplayer}'  last_played:#{game.last_played_at.strftime('%Y/%m/%d')}  "
+      print "author:'#{game.author.first_name} #{game.author.last_name}'"
     end
     puts '  '
   end
@@ -17,17 +21,14 @@ module GameList
     end
   end
 
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def add_game
     puts 'Create a new game'
     print 'Enter game name: '
     name = gets.chomp
-    print 'Enter game year: '
-    year = gets.chomp.to_i
-    print 'Enter game month betwen 1-12: '
-    month = gets.chomp.to_i
-    print 'Enter game date between 1-31: '
-    date = gets.chomp.to_i
+    year = select_year
+    month = select_month
+    date = select_day
     print 'Is it Multiplayer? [Y/N]: '
     multiplayer_input = gets.chomp.downcase
     multiplayer = false
@@ -47,5 +48,5 @@ module GameList
     save_games(@games)
     puts 'New game was created'
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end
