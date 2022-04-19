@@ -14,5 +14,4 @@ class Game
   def can_be_archived?
     super && (last_played_at.year < Time.new.year - 2)
   end
-
 end
