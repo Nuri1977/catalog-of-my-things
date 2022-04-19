@@ -8,4 +8,10 @@ class Game
     @last_played_at = last_played_at
   end
   # rubocop:enable Metrics/ParameterLists, Style/OptionalBooleanParameter
+
+  private
+
+  def can_be_archived?
+    super && (last_played_at.year < Time.new.year - 2)
+  end
 end
