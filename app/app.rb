@@ -1,7 +1,10 @@
-require './app/console'
-require './app/game'
-require './app/author'
-require './app/game_list'
+require_relative './console'
+require_relative './game'
+require_relative './author'
+require_relative './music_album'
+require_relative './genre'
+require_relative './game_list'
+require_relative './music_list'
 require 'json'
 require './data/authors/author_crud'
 require './data/games/game_crud'
@@ -9,6 +12,8 @@ require './data/games/game_crud'
 class App
   include Console
   include GameList
+  include MusicList
+
   attr_accessor :books, :music_albums, :games, :genres,
                 :lables, :authors
 
