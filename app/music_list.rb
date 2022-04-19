@@ -12,6 +12,7 @@ module MusicList
         print "#{index}) Album: #{music_album.name}, Genre: #{@genres.empty? ? 'No genre' : music_album.genre.name}, "
         print "Publish Date: #{time_format(music_album.publish_date)}, Archived: #{music_album.archived}, "
         print "Spotify: #{music_album.on_spotify}"
+        puts ''
       end
     end
     puts ''

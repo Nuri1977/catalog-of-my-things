@@ -8,6 +8,7 @@ require_relative './music_list'
 require 'json'
 require './data/authors/author_crud'
 require './data/games/game_crud'
+require './data/genres/genre_crud'
 
 class App
   include Console
@@ -19,7 +20,7 @@ class App
 
   def initialize
     @books = []
-    @music_albums = load_music_albums
+    @music_albums = []
     @games = []
     @genres = []
     @labels = []
@@ -43,5 +44,7 @@ class App
     @authors = read_authors
     seed_random_data
     @games = read_games(@authors)
+    @music_albums = load_music_albums
+    @genres = load_genres
   end
 end
