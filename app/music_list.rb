@@ -8,11 +8,12 @@ module MusicList
       puts 'You don\'t have any Music Albums.'
     else
       @music_albums.each_with_index do |music_album, index|
-        # rubocop:disable Layout/LineLength
-        puts "#{index}) Album: #{music_album.name}, Genre: #{@genres.empty? ? 'No genre' : music_album.genre.name}, Publish Date: #{time_format(music_album.publish_date)}, Archived: #{music_album.archived}, Spotify: #{music_album.on_spotify}"
-        # rubocop:enable Layout/LineLength
+        print "#{index}) Album: #{music_album.name}, Genre: #{@genres.empty? ? 'No genre' : music_album.genre.name}, "
+        print "Publish Date: #{time_format(music_album.publish_date)}, Archived: #{music_album.archived}, "
+        print "Spotify: #{music_album.on_spotify}"
       end
     end
+    puts ''
   end
 
   def add_music_album
@@ -22,7 +23,14 @@ module MusicList
     month = select_month
     day = select_day
 
-    music_album = MusicAlbum.new(name, Time.new(year, month, day))
+    print 'Is it on Spotify? (Y/N): '
+    spotify_answer = gets.chomp.downcase
+    until %w[y n].include?(spotify_answer)
+      print 'Is it on Spotify? (Y/N): '
+      spotify_answer = gets.chomp.downcase
+    end
+
+    music_album = MusicAlbum.new(name, Time.new(year, month, day), false, spotify_answer == 'y')
 
     unless @genres.empty?
       puts 'Select genre: '
