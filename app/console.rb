@@ -31,7 +31,7 @@ module Console
       when 1
         puts 'List all books'
       when 2
-        puts 'list_music_albums'
+        puts list_music_albums
       when 3
         puts 'list_games'
       when 4
