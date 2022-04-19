@@ -2,6 +2,9 @@ require './app/console'
 require './app/game'
 require './app/author'
 require './app/game_list'
+require 'json'
+require './data/authors/author_crud'
+require './data/games/game_crud'
 
 class App
   include Console
@@ -20,5 +23,6 @@ class App
 
   def run
     puts 'This method is for fetching data from json files'
+    @authors = read_authors
   end
 end

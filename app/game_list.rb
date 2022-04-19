@@ -1,19 +1,21 @@
 module GameList
   def list_all_games
-    puts 'List of all Games.'
+    puts 'List of all Games:'
     puts 'Database is empty! Add a game.' if @games.empty?
     @games.each do |game|
-      puts "id:#{game.id} date:#{game.publish_date.strftime('%Y/%m/%d')} MP:'#{game.multiplayer}' last_played:"
-      puts "#{game.last_played_at.strftime('%Y/%m/%d')} author:#{game.author.first_name} #{game.author.last_name}"
+      print "id:#{game.id} date:#{game.publish_date.strftime('%Y/%m/%d')} MP:'#{game.multiplayer}' last_played:"
+      print "#{game.last_played_at.strftime('%Y/%m/%d')} author:'#{game.author.first_name} #{game.author.last_name}'"
     end
+    puts '  '
   end
 
   def list_all_authors
     if @authors.empty?
       @authors.push(Author.new('Nuri', 'Lacka'))
       @authors.push(Author.new('Mugisha', 'Samuel'))
+      save_authors(@authors)
     end
-    puts 'List of all authors.'
+    puts 'List of all authors:'
     @authors.each do |author|
       puts "id:#{author.id} name:'#{author.first_name} #{author.last_name}'"
     end
@@ -24,6 +26,7 @@ module GameList
     if @authors.empty?
       @authors.push(Author.new('Nuri', 'Lacka'))
       @authors.push(Author.new('Mugisha', 'Samuel'))
+      save_authors(@authors)
     end
     puts 'Create a new game'
     print 'Enter game name: '
