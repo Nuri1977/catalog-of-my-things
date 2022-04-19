@@ -5,7 +5,7 @@ describe 'tests for label class' do
   before :each do
     @book = Book.new('sam', Time.new(2020, 11, 0o5), 'longhorn', 'bad')
     @label = Label.new('giancoli', 'red')
-    @book.label = @label
+    @label.add_item(@book)
   end
 
   it 'tests to see if it returns the label instance' do

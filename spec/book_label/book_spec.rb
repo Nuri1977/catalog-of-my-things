@@ -16,7 +16,7 @@ describe 'tests for book class' do
     expect(@book.cover_state).to eq('bad')
   end
 
-  it 'test if move_to_archive method works correctly' do
-    expect(@book.move_to_archive).to be true
+  it 'test if can_be_archived? method works correctly' do
+    expect(@book.can_be_archived?).to be true
   end
 end

@@ -12,7 +12,7 @@ class Book < Item
   # rubocop:enable Metrics/ParameterLists
   # rubocop:enable Style/OptionalBooleanParameter
 
-  private
+  
 
   def can_be_archived?
     @cover_state == 'bad' || super
