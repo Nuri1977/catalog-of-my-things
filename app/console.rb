@@ -31,11 +31,11 @@ module Console
       when 1
         puts 'List all books'
       when 2
-        puts list_music_albums
+        list_music_albums
       when 3
         puts 'list_games'
       when 4
-        puts list_genres
+        list_genres
       when 5
         puts 'list_labels'
       when 6
@@ -43,7 +43,7 @@ module Console
       when 7
         puts 'add_book'
       when 8
-        puts 'add_music_album'
+        add_music_album
       when 9
         puts 'add_movie'
       when 10
