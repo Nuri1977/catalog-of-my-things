@@ -50,7 +50,7 @@ module BookList
     label_index = gets.chomp.to_i
     new_book.label = @labels[label_index]
     @books.push(new_book)
-
+    save_books(@books)
     puts 'Created a book successfully!'
   end
 end

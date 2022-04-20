@@ -12,6 +12,7 @@ require_relative './book_list'
 require_relative './label'
 require_relative './book'
 require './data/genres/genre_crud'
+require './data/books/book_crud'
 
 class App
   include Console
