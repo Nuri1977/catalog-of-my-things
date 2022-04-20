@@ -10,6 +10,8 @@ class MusicAlbum < Item
   end
   # rubocop:enable Style/OptionalBooleanParameter
 
+  private
+
   def can_be_archived?
     super && @on_spotify
   end

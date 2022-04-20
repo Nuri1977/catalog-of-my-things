@@ -13,15 +13,15 @@ describe MusicAlbum do
     end
 
     it 'should return a boolean value depending on published_date (longer than 10 years) and is on spotify' do
-      music_archived = @music.can_be_archived?
+      @music.move_to_archive
 
-      expect(music_archived).to be true
+      expect(@music.archived).to be true
 
-      @music.on_spotify = false
+      another_music = MusicAlbum.new('Thriller', Time.new(2001, 0o7, 13), false, false)
 
-      music_archived = @music.can_be_archived?
+      another_music.move_to_archive
 
-      expect(music_archived).to be false
+      expect(another_music.archived).to be false
     end
   end
 end
