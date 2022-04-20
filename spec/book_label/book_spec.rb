@@ -14,9 +14,10 @@ describe 'tests for book class' do
     expect(@book.publish_date).to eq Time.new(2020, 11, 0o5)
     expect(@book.publisher).to eq('longhorn')
     expect(@book.cover_state).to eq('bad')
+    expect(@book.id).to be_between(1, 10_000).inclusive
   end
 
-  it 'test if move_to_archive method works correctly' do
-    expect(@book.move_to_archive).to be true
+  it 'test ifcan_be_archived? method works correctly' do
+    expect(@book.can_be_archived?).to be true
   end
 end

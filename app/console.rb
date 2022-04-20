@@ -28,7 +28,7 @@ module Console
       selected = gets.chomp.to_i
       case selected
       when 1
-        puts 'List all books'
+        list_all_books
       when 2
         list_music_albums
       when 3
@@ -36,11 +36,11 @@ module Console
       when 4
         list_genres
       when 5
-        puts 'list_labels'
+        list_all_labels
       when 6
         list_all_authors
       when 7
-        puts 'add_book'
+        add_book
       when 8
         add_music_album
       when 9

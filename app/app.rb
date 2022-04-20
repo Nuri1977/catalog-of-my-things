@@ -8,11 +8,15 @@ require_relative './music_list'
 require 'json'
 require './data/authors/author_crud'
 require './data/games/game_crud'
+require_relative './book_list'
+require_relative './label'
+require_relative './book'
 
 class App
   include Console
   include GameList
   include MusicList
+  include BookList
 
   attr_accessor :books, :music_albums, :games, :genres,
                 :lables, :authors
