@@ -5,9 +5,11 @@ module BookList
     puts 'list of all books'
     puts 'the database is empty' if @books.empty?
     @books.each do |book|
-      puts "id:#{book.id} date:#{book.publish_date.strftime('%y/%m/%d')}
-        name:'#{book.name}' publisher:'#{book.publisher}' label:'#{book.label.title}' "
+      puts
+      print "id: #{book.id}, Date: #{book.publish_date.strftime('%y/%m/%d')}, "
+      print "Name: '#{book.name}', Publisher: '#{book.publisher}',  Label: '#{book.label.title}' "
     end
+    puts ' '
   end
 
   def list_all_labels

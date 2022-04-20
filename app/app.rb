@@ -48,12 +48,11 @@ class App
       @authors.push(Author.new('Pedro', 'Guerreiro'))
       save_authors(@authors)
     else
-      puts 'Data was fetched from database'
+      puts ' '
     end
   end
 
   def run
-    puts 'This method is for fetching data from json files'
     @authors = read_authors
     @labels = read_labels
     seed_random_data
