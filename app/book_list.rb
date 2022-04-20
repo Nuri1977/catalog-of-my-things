@@ -11,12 +11,6 @@ module BookList
   end
 
   def list_all_labels
-    if @labels.empty?
-      @labels.push(Label.new('Gift', 'red'))
-      @labels.push(Label.new('new', 'blue'))
-      @labels.push(Label.new('boz', 'green'))
-      @labels.push(Label.new('promotion', 'indigo'))
-    end
     puts 'list of all labels'
     puts 'the database is empty' if @labels.empty?
     @labels.each do |label|
@@ -25,12 +19,6 @@ module BookList
   end
 
   def add_book
-    if @labels.empty?
-      @labels.push(Label.new('Gift', 'red'))
-      @labels.push(Label.new('new', 'blue'))
-      @labels.push(Label.new('boz', 'green'))
-      @labels.push(Label.new('promotion', 'indigo'))
-    end
     print 'Book Name: '
     name = gets.chomp
     year = select_year
@@ -50,7 +38,7 @@ module BookList
     label_index = gets.chomp.to_i
     new_book.label = @labels[label_index]
     @books.push(new_book)
-
+    save_books(@books)
     puts 'Created a book successfully!'
   end
 end
