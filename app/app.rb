@@ -13,6 +13,7 @@ require_relative './label'
 require_relative './book'
 require './data/genres/genre_crud'
 require './data/books/book_crud'
+require './data/labels/label_crud'
 
 class App
   include Console
@@ -33,6 +34,13 @@ class App
   end
 
   def seed_random_data
+    if @labels.empty?
+      @labels.push(Label.new('Gift', 'red'))
+      @labels.push(Label.new('new', 'blue'))
+      @labels.push(Label.new('boz', 'green'))
+      @labels.push(Label.new('promotion', 'indigo'))
+      save_labels(@labels)
+    end
     if @authors.empty?
       @authors.push(Author.new('Stephen', 'King'))
       @authors.push(Author.new('Nuri', 'Lacka'))
@@ -47,9 +55,11 @@ class App
   def run
     puts 'This method is for fetching data from json files'
     @authors = read_authors
+    @labels=read_labels
     seed_random_data
     @games = read_games(@authors)
     @music_albums = load_music_albums
     @genres = load_genres
+    @books = load_books(@labels)
   end
 end
