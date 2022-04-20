@@ -17,7 +17,8 @@ describe 'tests for book class' do
     expect(@book.id).to be_between(1, 10_000).inclusive
   end
 
-  it 'test ifcan_be_archived? method works correctly' do
-    expect(@book.can_be_archived?).to be true
+  it 'test if can_be_archived? method works correctly' do
+    @book.move_to_archive
+    expect(@book.archived).to be true
   end
 end
