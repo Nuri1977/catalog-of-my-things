@@ -55,7 +55,7 @@ class App
   def run
     puts 'This method is for fetching data from json files'
     @authors = read_authors
-    @labels=read_labels
+    @labels = read_labels
     seed_random_data
     @games = read_games(@authors)
     @music_albums = load_music_albums
