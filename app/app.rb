@@ -11,6 +11,7 @@ require './data/games/game_crud'
 require_relative './book_list'
 require_relative './label'
 require_relative './book'
+require './data/genres/genre_crud'
 
 class App
   include Console
@@ -47,5 +48,7 @@ class App
     @authors = read_authors
     seed_random_data
     @games = read_games(@authors)
+    @music_albums = load_music_albums
+    @genres = load_genres
   end
 end

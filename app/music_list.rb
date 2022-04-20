@@ -1,5 +1,6 @@
 require_relative './helper'
 require_relative './music_album'
+require_relative '../data/music/music_album_crud'
 
 module MusicList
   include Helper
@@ -11,6 +12,7 @@ module MusicList
         print "#{index}) Album: #{music_album.name}, Genre: #{@genres.empty? ? 'No genre' : music_album.genre.name}, "
         print "Publish Date: #{time_format(music_album.publish_date)}, Archived: #{music_album.archived}, "
         print "Spotify: #{music_album.on_spotify}"
+        puts ''
       end
     end
     puts ''
@@ -39,6 +41,7 @@ module MusicList
       music_album.add_genre = @genres[genre_index]
     end
     @music_albums.push(music_album)
+    save_music_albums(@music_albums)
     puts 'Created a Music Album successfully!'
   end
 
