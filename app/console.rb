@@ -12,7 +12,6 @@ module Console
       'List all authors',
       'Add a book',
       'Add a music album',
-      'Add a movie',
       'Add a game',
       'Exit'
     ]
@@ -44,10 +43,8 @@ module Console
       when 8
         add_music_album
       when 9
-        puts 'add_movie'
-      when 10
         add_game
-      when 11
+      when 10
         puts 'Thank you for using our app!'
         break
       else

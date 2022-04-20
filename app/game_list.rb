@@ -7,9 +7,9 @@ module GameList
     puts 'Database is empty! Add a game.' if @games.empty?
     @games.each do |game|
       puts
-      print "id:#{game.id} name:'#{game.name}'  date:#{game.publish_date.strftime('%Y/%m/%d')} "
-      print "MP:'#{game.multiplayer}'  last_played:#{game.last_played_at.strftime('%Y/%m/%d')}  "
-      print "author:'#{game.author.first_name} #{game.author.last_name}'"
+      print "id:#{game.id}, Name: '#{game.name}', Date: #{game.publish_date.strftime('%Y/%m/%d')}, "
+      print "MP:' #{game.multiplayer}', Last_played: #{game.last_played_at.strftime('%Y/%m/%d')}, "
+      print "Author: '#{game.author.first_name} #{game.author.last_name}'"
     end
     puts '  '
   end
