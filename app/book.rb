@@ -13,6 +13,6 @@ class Book < Item
   # rubocop:enable Style/OptionalBooleanParameter
 
   def can_be_archived?
-    @cover_state == 'bad' || super
+    super || @cover_state == 'bad'
   end
 end
